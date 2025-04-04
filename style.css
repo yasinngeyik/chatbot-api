@@ -6,22 +6,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
  }
 
  body {
     min-height: 100vh;
     background: linear-gradient(#eeeeee, #c8c7ff);
  }
-
- .styled-heading {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    color: #5350c4;
-    letter-spacing: 2px; 
-    margin-top: 20px;
-}
 
  #chatbot-toggler {
     position: fixed;
@@ -364,15 +354,3 @@
  body.show-emoji-picker em-emoji-picker {
     visibility: visible;
  }
- #chatbot-toggler {
-    transition: transform 0.3s ease;
-}
-
-#chatbot-toggler:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
-#chatbot-toggler:focus {
-    outline: 2px solid blue;
-}
