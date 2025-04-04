@@ -14,17 +14,13 @@ const userData = {
         mime_type: null,
     }
 }
-
-
 const initialInputHeight = messageInput.scrollHeight;
 
 
 // apı setup
 const API_KEY = "AIzaSyBwyNg71WS2nEMfABpi3rW3dBjT_bF8AFE";
-
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 // create message element with dynamic classes and return it
-
 const createMessageElement = (content, ...classes) => {
     const div = document.createElement("div")
     div.classList.add("message", ...classes);
@@ -113,3 +109,74 @@ const handleOutMessage = (e) => {
         generateBotResponse(inComingMessageDiv);
     }, 600);
 };
+// handle enter key prees for sending message
+messageInput.addEventListener("keydown", (e) => {
+    const userMessage = e.target.value.trim();
+
+    if (e.key === "Enter" && userMessage) {
+        handleOutMessage(e);
+    }
+});
+
+
+messageInput.addEventListener("input", () => {
+
+})
+
+fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        fileUploadWrapper.classList.add("file-upload")
+        fileUploadWrapper.querySelector("img").src = e.target.result;
+
+        const base64String = e.target.result.split(",")[1]
+
+        // store file data in userData
+
+        userData.file = {
+            data: base64String,
+            mime_type: file.type
+        }
+        fileInput.value = "";
+    }
+    reader.readAsDataURL(file);
+})
+const picker = new EmojiMart.Picker({
+    theme: "light",
+    skinTonePosition: "none",
+    previewPosition: "none",
+    onEmojiSelect: (emoji) => {
+        const { selectionStart: start, selectionEnd: end } = messageInput;
+        messageInput.setRangeText(emoji.native, start, end, "end");
+        messageInput.focus();
+    },
+    onClickOutside: (e) => {
+        if (e.target.id === "emoji-picker") {
+            document.body.classList.toggle("show-emoji-picker");
+        } else {
+            document.body.classList.remove("show-emoji-picker");
+        };
+    }
+
+});
+
+document.querySelector(".chat-form").appendChild(picker);
+
+fileCancelButton.addEventListener("click", () => {
+    userData.file = {
+
+    }
+    fileUploadWrapper.classList.remove("file-upload")
+})
+
+sendMessageButton.addEventListener("click", (e) => handleOutMessage(e));
+document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
+
+chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+closeChatbot.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+
+
