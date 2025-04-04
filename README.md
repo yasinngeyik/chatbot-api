@@ -18,9 +18,8 @@ Chatbot, **Google Gemini API**'yi kullanarak mesajları anlar ve anlamlı yanıt
 - **Direkt mesaj kutusuna emoji ekleme** ve **mobil uyumlu emoji arayüzü** içerir.  
 
 ### 🎨 **Özelleştirilebilir Tema ve Tasarım**  
-- **CSS ile tamamen özelleştirilebilir** arayüz sunar.  
-- **Karanlık & Açık mod desteği** mevcuttur.  
-
+- **CSS ile tamamen özelleştirilebilir** arayüz sunar.
+- 
 ### 📱 **Duyarlı (Responsive) Tasarım**  
 - **Mobil ve masaüstü** cihazlarla **tam uyumlu** çalışır.  
 - **Bootstrap & Tailwind CSS** kullanılarak optimize edilmiştir.  
@@ -53,9 +52,8 @@ The chatbot **understands user messages** and generates intelligent responses us
 - **Direct emoji insertion** into the message box with **mobile-friendly UI**.  
 
 ### 🎨 **Customizable Theme & Design**  
-- Fully **customizable UI with CSS**.  
-- **Light & Dark mode support** included.  
-
+- Fully **customizable UI with CSS**.
+- 
 ### 📱 **Responsive Design**  
 - Works seamlessly on **both mobile and desktop** devices.  
 - **Optimized with Bootstrap & Tailwind CSS** for a modern look.  
